@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khush Jani · Data, AI & Cloud Engineer</title>
+    <meta
+      name="description"
+      content="Khush Jani is a Data, AI and Cloud engineer based in Toronto. I turn raw data into scalable pipelines, production ML, and cloud native systems."
+    />
+    <meta name="author" content="Khush Jani" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Khush Jani · Data, AI & Cloud Engineer" />
+    <meta property="og:description" content="Data, AI and Cloud engineer in Toronto. I turn raw data into scalable pipelines, production ML, and cloud native systems." />
+    <meta property="og:url" content="https://khush-jani.work/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <!-- Display: Clash Display · Body: General Sans (Fontshare) -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- HUD / technical labels: IBM Plex Mono -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Living shader background -->
+    <canvas class="gl-bg" id="gl" aria-hidden="true"></canvas>
+    <!-- Film grain -->
+    <div class="grain" aria-hidden="true"></div>
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- Ambient HUD -->
+    <div class="hud hud--bl" aria-hidden="true">
+      <span class="hud__dot"></span> Toronto, ON <span class="hud__sep">/</span> 43.65°N 79.38°W
+    </div>
+    <div class="hud hud--br" aria-hidden="true">
+      <b id="hudClock">--:--:--</b> EDT <span class="hud__sep">/</span> SCROLL <b id="hudScroll">00%</b>
+    </div>
+
+    <!-- ===================== NAV ===================== -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="#top" class="nav__brand" aria-label="Khush Jani, home" data-magnetic="0.2">
+          <span class="nav__monogram">KJ</span>
+          <span class="nav__name">Khush&nbsp;Jani</span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#hero">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#work">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#certifications">Certifications</a>
+        </nav>
+
+        <div class="nav__actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="#contact" class="btn btn--primary btn--sm nav__cta" data-magnetic="0.3">Let's talk</a>
+        </div>
+
+        <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav__mobile" id="navMobile">
+        <a href="#hero">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact" class="btn btn--primary">Let's talk</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ===================== HERO ===================== -->
+      <section class="hero" id="hero">
+        <div class="container hero__grid">
+          <aside class="hero__aside reveal">
+            <div class="about__portrait" data-tilt>
+              <span class="about__portrait-mono">KJ</span>
+            </div>
+            <ul class="about__facts">
+              <li><span class="about__facts-k">Education</span><span class="about__facts-v">M.ACS, Concordia University</span></li>
+              <li><span class="about__facts-k">Based in</span><span class="about__facts-v">Toronto, ON</span></li>
+              <li><span class="about__facts-k">Experience</span><span class="about__facts-v">3+ years</span></li>
+              <li><span class="about__facts-k">Focus</span><span class="about__facts-v">Data · AI/ML · Cloud</span></li>
+            </ul>
+          </aside>
+
+          <div class="hero__main">
+            <p class="hero__kicker reveal">
+              <span class="hero__status"></span> Available for work · Toronto, ON
+            </p>
+
+            <h1 class="hero__title">
+              <span class="hero__line reveal" data-delay="0">I engineer</span>
+              <span class="hero__line reveal" data-delay="90"><span class="grad-text">data</span> into</span>
+              <span class="hero__line reveal" data-delay="180">intelligent <span class="outline">systems</span></span>
+            </h1>
+
+            <p class="hero__role reveal" data-delay="300">
+              <span class="hero__role-label">//</span>
+              <span data-scramble data-text="Data · AI · Machine Learning · Cloud">Data · AI · Machine Learning · Cloud</span>
+            </p>
+
+            <p class="hero__lede reveal" data-delay="360">
+              I'm a Data &amp; ML engineer with 3+ years turning raw, messy data into scalable
+              pipelines, production ready models, and cloud native architecture, bridging the gap
+              between engineering and data science.
+            </p>
+
+            <div class="hero__cta reveal" data-delay="440">
+              <a href="#projects" class="btn btn--primary" data-magnetic="0.4">View my work
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="/Khush_Jani_Resume.pdf" class="btn btn--ghost" download data-magnetic="0.4">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Download résumé
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container hero__statsbar">
+          <dl class="hero__stats reveal">
+            <div class="stat"><dt class="stat__num" data-count="3" data-suffix="+">0</dt><dd class="stat__label">Years of experience</dd></div>
+            <div class="stat"><dt class="stat__num" data-count="7" data-suffix="+">0</dt><dd class="stat__label">Shipped projects</dd></div>
+            <div class="stat"><dt class="stat__num" data-count="15" data-suffix="+">0</dt><dd class="stat__label">Certifications</dd></div>
+            <div class="stat"><dt class="stat__num" data-count="3" data-suffix=" clouds">0</dt><dd class="stat__label">AWS · Azure · GCP</dd></div>
+          </dl>
+        </div>
+
+        <a href="#skills" class="hero__scroll" aria-label="Scroll to content"><span class="hero__scroll-dot"></span></a>
+      </section>
+
+      <!-- ===================== MARQUEE ===================== -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Python</span><span class="dot">✦</span>
+          <span>Apache Spark</span><span class="dot">✦</span>
+          <span>Kafka</span><span class="dot">✦</span>
+          <span>Airflow</span><span class="dot">✦</span>
+          <span>Snowflake</span><span class="dot">✦</span>
+          <span>PyTorch</span><span class="dot">✦</span>
+          <span>TensorFlow</span><span class="dot">✦</span>
+          <span>AWS</span><span class="dot">✦</span>
+          <span>Databricks</span><span class="dot">✦</span>
+          <span>BigQuery</span><span class="dot">✦</span>
+          <span>Docker</span><span class="dot">✦</span>
+          <span>Kubernetes</span><span class="dot">✦</span>
+        </div>
+      </div>
+
+      <!-- ===================== SKILLS ===================== -->
+      <section class="section" id="skills">
+        <div class="container">
+          <p class="eyebrow reveal"><span class="eyebrow__num">01</span> Toolbox</p>
+          <h2 class="section__title reveal">Technologies I work with</h2>
+          <p class="section__lede reveal">A complete data toolkit, from ingestion and orchestration through modeling, GenAI, and deployment.</p>
+
+          <div class="skills-grid">
+            <article class="skill-card reveal"><h3 class="skill-card__title">Languages &amp; Query</h3><ul class="tags"><li>Python</li><li>SQL</li><li>Scala</li><li>TypeScript</li><li>Java</li><li>C++</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">Data Engineering</h3><ul class="tags"><li>Spark</li><li>PySpark</li><li>Kafka</li><li>Airflow</li><li>Hadoop</li><li>Hive</li><li>Flink</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">Cloud &amp; Warehousing</h3><ul class="tags"><li>AWS</li><li>Azure</li><li>GCP</li><li>Databricks</li><li>Snowflake</li><li>Redshift</li><li>BigQuery</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">ML &amp; Deep Learning</h3><ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>Scikit-Learn</li><li>XGBoost</li><li>CNN · RNN · LSTM</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">GenAI &amp; LLMs</h3><ul class="tags"><li>LLMs</li><li>RAG Pipelines</li><li>Agentic AI</li><li>LangGraph</li><li>Transformers</li><li>Prompt Engineering</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">MLOps &amp; DevOps</h3><ul class="tags"><li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>MLflow</li><li>GitHub Actions</li><li>CI/CD</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">Analytics &amp; BI</h3><ul class="tags"><li>Power BI</li><li>Tableau</li><li>Looker</li><li>Grafana</li><li>Pandas</li><li>NumPy</li></ul></article>
+            <article class="skill-card reveal"><h3 class="skill-card__title">Automation &amp; Platform</h3><ul class="tags"><li>Power Automate</li><li>Copilot Studio</li><li>Jira</li><li>SharePoint</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== EXPERIENCE ===================== -->
+      <section class="section" id="work">
+        <div class="container">
+          <p class="eyebrow reveal"><span class="eyebrow__num">02</span> Experience</p>
+          <h2 class="section__title reveal">Where I've made an impact</h2>
+
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <div class="timeline__dot"></div>
+              <div class="timeline__head"><h3 class="timeline__role">Associate · Data &amp; AI</h3><span class="timeline__period">Sep 2025 — Present</span></div>
+              <p class="timeline__org">PwC Canada</p>
+              <p class="timeline__desc">Modernizing a Tier 1 Canadian bank's management reporting platform: migrating legacy Informatica ETL to a cloud ready AWS architecture on Redshift and Spark, and shipping governed GenAI solutions on Azure.</p>
+              <ul class="timeline__wins">
+                <li>Designed a 3 layer data architecture with end to end Airflow DAGs, PySpark transformations, PII masking, and data quality checks</li>
+                <li>Cut manual migration effort by <strong>~98%</strong> with an LLM powered accelerator generating SQL, DDLs, and source to target mappings</li>
+                <li>Built a GenAI reporting agent on Azure AI Foundry, saving 17+ managers <strong>10+ hrs/week</strong></li>
+              </ul>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__dot"></div>
+              <div class="timeline__head"><h3 class="timeline__role">Machine Learning Engineer</h3><span class="timeline__period">Jan 2022 — Dec 2022</span></div>
+              <p class="timeline__org">BrainyBeam Technologies</p>
+              <p class="timeline__desc">Owned end to end ML pipelines, from data cleaning and feature engineering to experiment tracking and containerized deployment, for production models.</p>
+              <ul class="timeline__wins">
+                <li>Shipped a telecom churn model (XGBoost, MLflow, Dockerized Flask) reaching <strong>0.87 AUC ROC</strong> with GitHub Actions CI/CD</li>
+                <li>Cut deployment latency by <strong>40%</strong> and improved training efficiency by <strong>25%</strong></li>
+                <li>Engineered 18+ features, reducing overfitting by <strong>30%</strong></li>
+              </ul>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__dot"></div>
+              <div class="timeline__head"><h3 class="timeline__role">Data Analyst</h3><span class="timeline__period">Jun 2021 — Nov 2021</span></div>
+              <p class="timeline__org">Ecubix</p>
+              <p class="timeline__desc">Directed SQL based ETL workflows and analytics on high volume datasets, applying advanced statistical methods to uncover trends, detect anomalies, and support evidence based planning.</p>
+              <ul class="timeline__wins">
+                <li>Drove a <strong>20%</strong> increase in customer acquisition through actionable insights</li>
+                <li>Enabled a <strong>15%</strong> revenue boost via timely, data driven interventions</li>
+              </ul>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__dot"></div>
+              <div class="timeline__head"><h3 class="timeline__role">Python Developer Intern</h3><span class="timeline__period">Jan 2020 — Dec 2020</span></div>
+              <p class="timeline__org">Bascom Bridge Education</p>
+              <p class="timeline__desc">Developed automation scripts for high volume data processing, optimizing Python solutions for complex workflows.</p>
+              <ul class="timeline__wins">
+                <li>Reduced operational overhead by <strong>32%</strong> through automation</li>
+                <li>Accelerated project delivery by <strong>10%</strong></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================== PROJECTS ===================== -->
+      <section class="section" id="projects">
+        <div class="container">
+          <p class="eyebrow reveal"><span class="eyebrow__num">03</span> Selected work</p>
+          <h2 class="section__title reveal">Projects</h2>
+          <p class="section__lede reveal">End to end data engineering pipelines and applied machine learning, with the metrics that mattered.</p>
+
+          <div class="filters reveal" role="tablist" aria-label="Filter projects">
+            <button class="filter is-active" data-filter="all">All</button>
+            <button class="filter" data-filter="data">Data Engineering</button>
+            <button class="filter" data-filter="ml">AI &amp; ML</button>
+          </div>
+
+          <div class="projects-grid" id="projectsGrid">
+            <article class="project reveal" data-cat="data" data-tilt>
+              <div class="project__top"><span class="project__tag">Data Engineering</span><span class="project__metric">+50% efficiency</span></div>
+              <h3 class="project__title">Real Time Stock Market Streaming</h3>
+              <p class="project__desc">Real time financial streaming pipeline on Kafka and AWS (EC2, S3, Glue, Athena), boosting analysis efficiency by 50% on high throughput market data.</p>
+              <ul class="project__stack"><li>Kafka</li><li>AWS</li><li>Glue</li><li>Athena</li></ul>
+            </article>
+            <article class="project reveal" data-cat="data" data-tilt>
+              <div class="project__top"><span class="project__tag">Data Engineering</span><span class="project__metric">+50% efficiency</span></div>
+              <h3 class="project__title">Football Analytics Pipeline</h3>
+              <p class="project__desc">End to end analytics pipeline on Apache Airflow and Azure Data Lake, automating extraction, cleaning, and transformation with Databricks and Power BI.</p>
+              <ul class="project__stack"><li>Airflow</li><li>Azure Data Lake</li><li>Databricks</li><li>Power BI</li></ul>
+            </article>
+            <article class="project reveal" data-cat="data" data-tilt>
+              <div class="project__top"><span class="project__tag">Data Engineering</span><span class="project__metric">+60% efficiency</span></div>
+              <h3 class="project__title">Uber Trip Analytics</h3>
+              <p class="project__desc">Streamlined ETL and analytics on GCP with BigQuery, Mage, and Looker Studio, delivering insight into trip patterns and fare distribution.</p>
+              <ul class="project__stack"><li>GCP</li><li>Mage</li><li>BigQuery</li><li>Looker</li></ul>
+            </article>
+            <article class="project reveal" data-cat="data" data-tilt>
+              <div class="project__top"><span class="project__tag">Data Engineering</span><span class="project__metric">+40% throughput</span></div>
+              <h3 class="project__title">Reddit Data Engineering Pipeline</h3>
+              <p class="project__desc">Scalable ETL on AWS (S3, Glue, Athena, Redshift) orchestrated with Airflow, boosting data processing efficiency by 40%.</p>
+              <ul class="project__stack"><li>Airflow</li><li>AWS</li><li>Redshift</li><li>PostgreSQL</li></ul>
+            </article>
+            <article class="project reveal" data-cat="ml" data-tilt>
+              <div class="project__top"><span class="project__tag project__tag--ml">GenAI</span><span class="project__metric">Agentic RAG</span></div>
+              <h3 class="project__title">GenAI Agentic Customer Support</h3>
+              <p class="project__desc">Multi agent RAG system on GCP using LangGraph with supervisor orchestration and full observability across the agent workflow.</p>
+              <ul class="project__stack"><li>LangGraph</li><li>Vertex AI</li><li>GCP</li><li>Docker</li></ul>
+            </article>
+            <article class="project reveal" data-cat="ml" data-tilt>
+              <div class="project__top"><span class="project__tag project__tag--ml">Machine Learning</span><span class="project__metric">95% accuracy</span></div>
+              <h3 class="project__title">Cell Segmentation with YOLOv8</h3>
+              <p class="project__desc">95% accurate cell segmentation system on YOLOv8 and Azure, with a Docker and GitHub Actions CI/CD pipeline that cut deployment time by 40% for healthcare diagnostics.</p>
+              <ul class="project__stack"><li>YOLOv8</li><li>Azure</li><li>Docker</li><li>GitHub Actions</li></ul>
+            </article>
+            <article class="project reveal" data-cat="ml" data-tilt>
+              <div class="project__top"><span class="project__tag project__tag--ml">Machine Learning</span><span class="project__metric">+60% diagnostics</span></div>
+              <h3 class="project__title">Kidney Disease Classification</h3>
+              <p class="project__desc">High accuracy kidney disease classifier in TensorFlow with a reproducible MLflow and DVC pipeline, improving diagnostic capability by 60%.</p>
+              <ul class="project__stack"><li>TensorFlow</li><li>MLflow</li><li>DVC</li><li>CNN</li></ul>
+            </article>
+            <article class="project reveal" data-cat="ml" data-tilt>
+              <div class="project__top"><span class="project__tag project__tag--ml">Deep Learning</span><span class="project__metric">CNN + LSTM</span></div>
+              <h3 class="project__title">Image Caption Generator</h3>
+              <p class="project__desc">Image captioning model combining CNN and LSTM to produce coherent natural language descriptions on the Flickr_8K dataset.</p>
+              <ul class="project__stack"><li>CNN</li><li>LSTM</li><li>Keras</li><li>NLP</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CERTIFICATIONS ===================== -->
+      <section class="section" id="certifications">
+        <div class="container">
+          <p class="eyebrow reveal"><span class="eyebrow__num">04</span> Credentials</p>
+          <h2 class="section__title reveal">Certifications</h2>
+          <p class="section__lede reveal">Continuously leveling up across cloud, data engineering, and machine learning.</p>
+
+          <div class="certs-grid">
+            <a class="cert cert--badge reveal" href="https://www.credly.com/badges/dfde0116-154e-472b-9ac6-7b6abfda6472" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/badges/google-cloud-ml.png" alt="Google Cloud Professional Machine Learning Engineer badge" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">Google Cloud</span><span class="cert__name">Professional ML Engineer</span><span class="cert__verify">Verified on Credly</span></span>
+            </a>
+            <a class="cert cert--badge reveal" href="https://www.credly.com/badges/d79f3f67-d290-4935-a3d9-308a2ecae994" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/badges/aws-data-engineer.png" alt="AWS Certified Data Engineer Associate badge" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">Amazon Web Services</span><span class="cert__name">Certified Data Engineer, Associate</span><span class="cert__verify">Verified on Credly</span></span>
+            </a>
+            <a class="cert cert--badge reveal" href="https://www.credly.com/badges/6926ca58-bd12-4ea6-9710-755186bccec8" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/badges/google-data-analytics.png" alt="Google Data Analytics Professional Certificate badge" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">Google</span><span class="cert__name">Data Analytics Professional</span><span class="cert__verify">Verified on Credly</span></span>
+            </a>
+            <a class="cert reveal" href="/certs/databricks-ml-production.png" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/certs/databricks-ml-production.png" alt="Databricks Machine Learning in Production certificate" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">Databricks Academy</span><span class="cert__name">Machine Learning in Production</span></span>
+            </a>
+            <a class="cert reveal" href="/certs/stanford-ml.png" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/certs/stanford-ml.png" alt="Stanford Machine Learning certificate by Andrew Ng" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">Stanford · Andrew Ng</span><span class="cert__name">Machine Learning</span></span>
+            </a>
+            <a class="cert reveal" href="/certs/ibm-ai-engineering.png" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/certs/ibm-ai-engineering.png" alt="IBM AI Engineering Professional Certificate" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">IBM</span><span class="cert__name">AI Engineering Professional Certificate</span></span>
+            </a>
+            <a class="cert reveal" href="/certs/ibm-advanced-data-science.png" target="_blank" rel="noopener">
+              <span class="cert__img"><img src="/certs/ibm-advanced-data-science.png" alt="IBM Advanced Data Science Specialization certificate" loading="lazy" /></span>
+              <span class="cert__body"><span class="cert__org">IBM</span><span class="cert__name">Advanced Data Science Specialization</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="contact-card reveal">
+            <p class="eyebrow">Let's build something</p>
+            <h2 class="contact-card__title">Have a data problem worth solving?</h2>
+            <p class="contact-card__lede">I'm open to full time roles and freelance projects across data, AI, and cloud. Drop me a line, I reply fast.</p>
+            <div class="contact-card__actions">
+              <a href="mailto:khushjani971@gmail.com" class="btn btn--primary btn--lg" data-magnetic="0.4">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                khushjani971@gmail.com
+              </a>
+              <a href="tel:+14384640015" class="btn btn--ghost btn--lg" data-magnetic="0.4">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +1 438-464-0015
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="nav__monogram">KJ</span>
+          <div><p class="footer__name">Khush Jani</p><p class="footer__tag">Mind engineered in data.</p></div>
+        </div>
+        <nav class="footer__social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/khush-jani/" target="_blank" rel="noopener" aria-label="LinkedIn" data-magnetic="0.3"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.52v14H.24V8zm7.54 0h4.33v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.52v-6.66c0-1.59-.03-3.63-2.21-3.63-2.21 0-2.55 1.73-2.55 3.52V22H7.78V8z"/></svg></a>
+          <a href="https://github.com/KhushJani" target="_blank" rel="noopener" aria-label="GitHub" data-magnetic="0.3"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg></a>
+          <a href="https://leetcode.com/khushjani" target="_blank" rel="noopener" aria-label="LeetCode" data-magnetic="0.3"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.48 0a1.37 1.37 0 0 0-.94.4L5.4 7.6a3.9 3.9 0 0 0 0 5.5l7.14 7.2a1.37 1.37 0 0 0 1.94-1.94l-7.14-7.2a1.17 1.17 0 0 1 0-1.66l7.14-7.2A1.37 1.37 0 0 0 13.48 0zM9.4 10.9a1.37 1.37 0 0 0 0 2.75h11.23a1.37 1.37 0 0 0 0-2.75z"/></svg></a>
+        </nav>
+      </div>
+      <div class="container footer__bottom">
+        <p>© <span id="year">2025</span> Khush Jani. All rights reserved.</p>
+        <p>Designed &amp; built with care.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
