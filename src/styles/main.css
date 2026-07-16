@@ -619,7 +619,7 @@ html.js .wordmark.done:hover .ltr {
 .skill-card:hover .tags li { color: var(--text); }
 
 /* ---------- Timeline ---------- */
-.timeline { margin-top: 52px; position: relative; padding-left: 28px; }
+.timeline { margin-top: 52px; position: relative; padding-left: 28px; list-style: none; }
 .timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--accent-2), transparent); }
 .timeline__item { position: relative; padding-bottom: 46px; }
 .timeline__item:last-child { padding-bottom: 0; }
@@ -656,6 +656,17 @@ html.js .wordmark.done:hover .ltr {
 .project:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
 .project:hover::before { opacity: 1; }
 .project.is-hidden { display: none; }
+.project__link {
+  position: absolute; top: 14px; right: 14px; z-index: 3;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 10px;
+  background: color-mix(in srgb, var(--bg) 58%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.project__link:hover { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--bg) 78%, transparent); }
 .project > * { transform: translateZ(24px); }
 .project__top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
 .project__tag { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; padding: 5px 10px; border-radius: 999px; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
