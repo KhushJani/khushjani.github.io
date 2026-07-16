@@ -391,7 +391,7 @@ html.has-cursor [data-magnetic] { cursor: none; }
   width: 100%;
 }
 .hero__aside { display: flex; flex-direction: column; gap: 20px; }
-.hero__aside .about__portrait { aspect-ratio: 4 / 5; box-shadow: var(--shadow); }
+.hero__aside .about__portrait { aspect-ratio: 4 / 5; box-shadow: var(--shadow); max-width: 300px; margin-inline: auto; }
 .hero__aside .about__facts { margin-top: 0; }
 .hero__main { min-width: 0; }
 .hero__main .hero__title { font-size: clamp(2.3rem, 4.6vw, 4.6rem); }
